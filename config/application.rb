@@ -17,6 +17,11 @@ module CoderetreatLive
       g.view_specs false
       g.helper_specs false
     end
+
+    # Due to Rails preventing images from being compiled in vendor and lib
+    # This config specific to bootstrap-sass gem
+    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

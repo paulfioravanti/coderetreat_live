@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-Coderetreat = Struct.new(:status, :location)
+# Coderetreat = Struct.new(:status, :location)
 
 feature 'Viewing the coderetreats running today' do
 
