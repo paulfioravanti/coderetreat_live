@@ -1,5 +1,6 @@
-require 'coderetreats/presenters/collection'
-Coderetreat = Struct.new(:status, :location)
+# require 'coderetreats/presenters/collection'
+# Coderetreat = Struct.new(:status, :location)
+require 'coderetreats'
 
 class CoderetreatsController < ApplicationController
   def running_today
@@ -15,11 +16,11 @@ class CoderetreatsController < ApplicationController
     #     Coderetreat.new('in_session', 'Berlin')
     #   ].each(&block)
     # end
-    coderetreats = [
-      Coderetreat.new('not_started', 'Chicago'),
-      Coderetreat.new('not_started', 'Seattle'),
-      Coderetreat.new('in_session', 'Berlin')
-    ]
+    # coderetreats = [
+    #   Coderetreat.new('not_started', 'Chicago'),
+    #   Coderetreat.new('not_started', 'Seattle'),
+    #   Coderetreat.new('in_session', 'Berlin')
+    # ]
     @coderetreats =
       # CoderetreatLive::Coderetreats::Presenters::Collection.for(coderetreats)
       CoderetreatLive::Coderetreats.running_today
