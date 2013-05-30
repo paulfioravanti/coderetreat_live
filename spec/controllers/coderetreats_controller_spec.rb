@@ -4,8 +4,11 @@ describe CoderetreatsController do
   describe "GET /running_today" do
     it "uses a coderetreats collection presenter" do
       coderetreats_presenter = double
-      stub_const("CoderetreatLive::Coderetreats::Presenters::Collection",
-        stub(for: coderetreats_presenter))
+      # stub_const("CoderetreatLive::Coderetreats::Presenters::Collection",
+      #   stub(for: coderetreats_presenter))
+      CoderetreatLive::Coderetreats::Presenters::Collection.stub(:for) do
+        coderetreats_presenter
+      end
       get :running_today
       expect(assigns(:coderetreats)).to be(coderetreats_presenter)
     end
