@@ -16,7 +16,7 @@ group :doc do
 end
 
 group :test do
-  gem 'rspec-rails', '2.13.2'
+  gem 'rspec-rails', '2.14.0.rc1'
   gem 'capybara', '2.1.0'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
