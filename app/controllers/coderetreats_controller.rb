@@ -25,4 +25,8 @@ class CoderetreatsController < ApplicationController
       # CoderetreatLive::Coderetreats::Presenters::Collection.for(coderetreats)
       CoderetreatLive::Coderetreats.running_today
   end
+
+  def edit_status
+    @coderetreat = Coderetreat.find(params[:id])
+  end
 end
