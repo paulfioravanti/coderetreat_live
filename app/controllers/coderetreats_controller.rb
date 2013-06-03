@@ -1,7 +1,7 @@
 # require 'coderetreats/presenters/collection'
 # Coderetreat = Struct.new(:status, :location)
 require 'coderetreats'
-require 'coderetreats/status'
+# require 'coderetreats/status'
 
 class CoderetreatsController < ApplicationController
   def running_today
@@ -31,16 +31,16 @@ class CoderetreatsController < ApplicationController
   #   @coderetreat = Coderetreat.find(coderetreat_id)
   # end
 
-  def update_status
-    CoderetreatLive::Coderetreats::Status.update_to(coderetreat_id,
-      params[:new_status])
-    # redirect_to edit_status_coderetreats_url(coderetreat_id)
-    redirect_to edit_coderetreat_status_url(coderetreat_id)
-  end
+  # def update_status
+  #   CoderetreatLive::Coderetreats::Status.update_to(coderetreat_id,
+  #     params[:new_status])
+  #   # redirect_to edit_status_coderetreats_url(coderetreat_id)
+  #   redirect_to edit_coderetreat_status_url(coderetreat_id)
+  # end
 
-  private
+  # private
 
-    def coderetreat_id
-      params[:id]
-    end
+  #   def coderetreat_id
+  #     params[:id]
+  #   end
 end

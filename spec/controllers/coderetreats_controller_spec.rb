@@ -30,25 +30,25 @@ describe CoderetreatsController do
   #   end
   # end
 
-  describe "PUT /update_status" do
-    let(:status_updater) { double(update_to: nil) }
+  # describe "PUT /update_status" do
+  #   let(:status_updater) { double(update_to: nil) }
 
-    before do
-      # stub_const("CoderetreatLive::Coderetreats::Status", status_updater)
-      allow(CoderetreatLive::Coderetreats::Status).to receive(:update_to)
-    end
+  #   before do
+  #     # stub_const("CoderetreatLive::Coderetreats::Status", status_updater)
+  #     allow(CoderetreatLive::Coderetreats::Status).to receive(:update_to)
+  #   end
 
-    it "redirects back to the edit status page" do
-      put :update_status, id: "5", new_status: 'in_session'
-      # expect(response).to redirect_to(edit_status_coderetreats_url("5"))
-      expect(response).to redirect_to(edit_coderetreat_status_url("5"))
-    end
+  #   it "redirects back to the edit status page" do
+  #     put :update_status, id: "5", new_status: 'in_session'
+  #     # expect(response).to redirect_to(edit_status_coderetreats_url("5"))
+  #     expect(response).to redirect_to(edit_coderetreat_status_url("5"))
+  #   end
 
-    it "updates the status of the coderetreat" do
-      # expect(status_updater).to receive(:update_to).with("5", 'in_session')
-      expect(CoderetreatLive::Coderetreats::Status).to \
-        receive(:update_to).with("5", 'in_session')
-      put :update_status, id: "5", new_status: 'in_session'
-    end
-  end
+  #   it "updates the status of the coderetreat" do
+  #     # expect(status_updater).to receive(:update_to).with("5", 'in_session')
+  #     expect(CoderetreatLive::Coderetreats::Status).to \
+  #       receive(:update_to).with("5", 'in_session')
+  #     put :update_status, id: "5", new_status: 'in_session'
+  #   end
+  # end
 end
