@@ -2,17 +2,18 @@ require 'spec_helper'
 
 describe CoderetreatsController do
   describe "GET /running_today" do
+    let(:coderetreats_presenter) { double }
+
+    before do
+      stub_const("CoderetreatLive::Coderetreats::Presenters::Collection",
+        double(for: coderetreats_presenter))
+    end
     # it "uses a coderetreats collection presenter" do
     it "gets the coderetreats running today" do
-      coderetreats_presenter = double
-      # stub_const("CoderetreatLive::Coderetreats::Presenters::Collection",
-      #   stub(for: coderetreats_presenter))
-      # CoderetreatLive::Coderetreats::Presenters::Collection.stub(:for) do
-      #   coderetreats_presenter
-      # end
-      # CoderetreatLive::Coderetreats.stub(:running_today) do
-      #   coderetreats_presenter
-      # end
+      # allow(CoderetreatLive::Coderetreats::Presenters::Collection).to \
+      #   receive(:for).and_return(coderetreats_presenter)
+      # allow(CoderetreatLive::Coderetreats).to \
+      #   receive(:running_today).and_return(coderetreats_presenter)
       allow(CoderetreatLive::Coderetreats).to \
         receive(:running_today).and_return(coderetreats_presenter)
       get :running_today
@@ -21,8 +22,8 @@ describe CoderetreatsController do
   end
 
   describe "GET /edit_status" do
+    let(:coderetreat) { double }
     it "assigns the coderetreat" do
-      coderetreat = double
       allow(Coderetreat).to receive(:find).with("5").and_return(coderetreat)
       get :edit_status, id: "5"
       expect(assigns(:coderetreat)).to be(coderetreat)
