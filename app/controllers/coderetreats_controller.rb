@@ -1,6 +1,7 @@
 # require 'coderetreats/presenters/collection'
 # Coderetreat = Struct.new(:status, :location)
 require 'coderetreats'
+require 'coderetreats/status'
 
 class CoderetreatsController < ApplicationController
   def running_today

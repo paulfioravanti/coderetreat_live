@@ -34,7 +34,8 @@ describe CoderetreatsController do
     let(:status_updater) { double(update_to: nil) }
 
     before do
-      stub_const("CoderetreatLive::Coderetreats::Status", status_updater)
+      # stub_const("CoderetreatLive::Coderetreats::Status", status_updater)
+      allow(CoderetreatLive::Coderetreats::Status).to receive(:update_to)
     end
 
     it "redirects back to the edit status page" do
@@ -43,7 +44,9 @@ describe CoderetreatsController do
     end
 
     it "updates the status of the coderetreat" do
-      expect(status_updater).to receive(:update_to).with("5", 'in_session')
+      # expect(status_updater).to receive(:update_to).with("5", 'in_session')
+      expect(CoderetreatLive::Coderetreats::Status).to \
+        receive(:update_to).with("5", 'in_session')
       put :update_status, id: "5", new_status: 'in_session'
     end
   end
