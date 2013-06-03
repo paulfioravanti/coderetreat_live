@@ -10,7 +10,8 @@ feature 'Updating the status of a session' do
   end
 
   scenario 'coderetreat is in session' do
-    visit edit_status_coderetreats_path(not_started_coderetreat)
+    # visit edit_status_coderetreats_path(not_started_coderetreat)
+    visit edit_coderetreat_status_path(not_started_coderetreat)
     click_button 'Start Session'
     expect(page).to \
       have_css('.in_session .coderetreat',
@@ -18,7 +19,7 @@ feature 'Updating the status of a session' do
   end
 
   scenario 'starting a break' do
-    visit edit_status_coderetreats_path(in_session_coderetreat)
+    visit edit_coderetreat_status_path(in_session_coderetreat)
     click_button 'Start Break'
     expect(page).to \
       have_css('.on_break .coderetreat',
