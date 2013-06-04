@@ -1,16 +1,8 @@
 require 'spec_helper'
 
-# Coderetreat = Struct.new(:status, :location)
-
 feature 'Viewing the coderetreats running today' do
-
-  # given(:no_code_retreats) { Coderetreat.destroy_all }
-
   given!(:coderetreats) do
     [
-      # Coderetreat.new('not_started', 'Chicago'),
-      # Coderetreat.new('not_started', 'Seattle'),
-      # Coderetreat.new('in_session', 'Berlin')
       Coderetreat.create!(status: 'not_started', location: 'Chicago'),
       Coderetreat.create!(status: 'not_started', location: 'Seattle'),
       Coderetreat.create!(status: 'in_session', location: 'Berlin')

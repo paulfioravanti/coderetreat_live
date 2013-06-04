@@ -9,6 +9,7 @@ describe CoderetreatLive::Coderetreats::Presenters::Collection do
     let(:presenter) do
       CoderetreatLive::Coderetreats::Presenters::Collection.for(coderetreats)
     end
+
     it "exposes those in status not_started" do
       expect { |block| presenter.not_started(&block) }.to \
         yield_successive_args(not_started)
