@@ -1,7 +1,7 @@
 Coderetreats app for the video series [Build an app with Corey Haines](http://cleancoders.com/)
 
 ### Slight modificatons:
-- Using Ruby 2, Rails 4.0.0.rc2
+- Using Ruby 2, Rails 4.0.0
 - Using RSpec 2.14.0.rc1 `allow` syntax for stubbing constants and methods
 - Using RSpec feature specs instead of Cucumber
 
