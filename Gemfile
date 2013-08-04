@@ -18,6 +18,6 @@ end
 group :test do
   gem 'rspec-rails', '2.14.0'
   gem 'capybara', '2.1.0'
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner', '1.1.0'
   gem 'launchy', '2.3.0'
 end
