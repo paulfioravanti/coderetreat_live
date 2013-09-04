@@ -16,9 +16,15 @@ module CoderetreatLive
           ['not_started', 'in_session', 'on_break']
         end
 
+        def filtered_by_status(status)
+          self.coderetreats.select do |coderetreat|
+            coderetreat.status == status
+          end
+        end
+
         def grouped_by_status(&block)
           self.class.all_statuses.each do |status|
-            yield status, []
+            yield status, filtered_by_status(status)
           end
         end
 
@@ -29,9 +35,7 @@ module CoderetreatLive
         end
 
         def in_status(status, &block)
-          self.coderetreats.select do |coderetreat|
-            coderetreat.status == status
-          end.each(&block)
+          filtered_by_status(status).each(&block)
         end
       end
     end
