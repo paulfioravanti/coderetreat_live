@@ -1,3 +1,5 @@
+require 'coderetreats/statuses'
+
 module CoderetreatLive
   module Coderetreats
     module Presenters
@@ -13,7 +15,7 @@ module CoderetreatLive
         end
 
         def self.all_statuses
-          ['not_started', 'in_session', 'on_break']
+          CoderetreatLive::Coderetreats::Statuses.all
         end
 
         def filtered_by_status(status)

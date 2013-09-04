@@ -1,3 +1,5 @@
+require 'coderetreats/statuses'
+
 class Coderetreat < ActiveRecord::Base
   def self.running_today
     all
@@ -8,6 +10,6 @@ class Coderetreat < ActiveRecord::Base
   end
 
   def available_next_statuses
-    ["not_started", "on_break", "in_session"] - [self.status]
+    CoderetreatLive::Coderetreats::Statuses.all - [self.status]
   end
 end
