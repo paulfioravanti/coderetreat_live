@@ -27,16 +27,6 @@ module CoderetreatLive
             yield status, filtered_by_status(status)
           end
         end
-
-        self.all_statuses.each do |status|
-          define_method status do |&block|
-            in_status(status, &block)
-          end
-        end
-
-        def in_status(status, &block)
-          filtered_by_status(status).each(&block)
-        end
       end
     end
   end

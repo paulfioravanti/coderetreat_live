@@ -10,21 +10,6 @@ describe CoderetreatLive::Coderetreats::Presenters::Collection do
       CoderetreatLive::Coderetreats::Presenters::Collection.for(coderetreats)
     end
 
-    it "exposes those in status not_started" do
-      expect { |block| presenter.not_started(&block) }.to \
-        yield_successive_args(not_started)
-    end
-
-    it "exposes those in status in_session" do
-      expect { |block| presenter.in_session(&block) }.to \
-        yield_successive_args(in_session)
-    end
-
-    it "exposes those in status on_break" do
-      expect { |block| presenter.on_break(&block) }.to \
-        yield_successive_args(on_break)
-    end
-
     describe "#grouped_by_status" do
       it "yields the possible statuses of a coderetreat" do
         expected_statuses = [ "in_session", "on_break", "not_started"]
