@@ -24,5 +24,16 @@ describe CoderetreatLive::Coderetreats::Presenters::Collection do
       expect { |block| presenter.on_break(&block) }.to \
         yield_successive_args(on_break)
     end
+
+    describe "#grouped_by_status" do
+      it "yields the possible statuses of a coderetreat" do
+        expected_statuses = [ "in_session", "on_break", "not_started"]
+        presenter = CoderetreatLive::Coderetreats::Presenters::Collection.for([])
+        presenter.grouped_by_status do |status, _|
+          expected_statuses.delete(status)
+        end
+        expect(expected_statuses).to eq([])
+      end
+    end
   end
 end

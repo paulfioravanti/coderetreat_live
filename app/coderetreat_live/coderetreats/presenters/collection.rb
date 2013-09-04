@@ -7,11 +7,22 @@ module CoderetreatLive
         end
 
         attr_reader :coderetreats
+
         def initialize(coderetreats)
           @coderetreats = coderetreats
         end
 
-        ['not_started', 'in_session', 'on_break'].each do |status|
+        def self.all_statuses
+          ['not_started', 'in_session', 'on_break']
+        end
+
+        def grouped_by_status(&block)
+          self.class.all_statuses.each do |status|
+            yield status, []
+          end
+        end
+
+        self.all_statuses.each do |status|
           define_method status do |&block|
             in_status(status, &block)
           end
