@@ -15,7 +15,7 @@ feature 'Updating the status of a session' do
     Then I should see that the coderetreat is in session) do
 
     visit edit_coderetreat_status_url(not_started_coderetreat)
-    click_button 'Start Session'
+    click_button 'In Session'
     visit running_today_coderetreats_url
     expect(page).to \
       have_css('.in_session .coderetreat',
@@ -29,7 +29,7 @@ feature 'Updating the status of a session' do
     Then I should see that the coderetreat is on break) do
 
     visit edit_coderetreat_status_url(in_session_coderetreat)
-    click_button 'Start Break'
+    click_button 'On Break'
     visit running_today_coderetreats_url
     expect(page).to \
       have_css('.on_break .coderetreat',
